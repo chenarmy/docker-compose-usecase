@@ -4,7 +4,7 @@ services:
   teamcity-server:
   
     container_name: teamcity-server
-    image: 172.16.178.61:5180/cmal/jetbrains/teamcity-server:2023.05.1
+    image: jetbrains/teamcity-server:2023.05.1
     ports:
       - "8111:8111"
     volumes:
@@ -14,7 +14,7 @@ services:
 
   teamcity-agent:
     container_name: teamcity-agent
-    image: 172.16.178.61:5180/cmal/jetbrains/teamcity-agent:2023.05.1
+    image: jetbrains/teamcity-agent:2023.05.1
     depends_on:
       - teamcity-server
     environment:

@@ -1,7 +1,7 @@
 version: '3'
 services:
   nacos:
-    image: 172.16.178.61:5180/cmal/nacos-server:2.1.2
+    image: nacos-server:2.1.2
     container_name: nacos
     ports:
       - "8848:8848"

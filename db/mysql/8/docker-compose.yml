@@ -3,7 +3,7 @@ version: "2"
 services:
   db:
     container_name: mysql8.0.21
-    image: 172.16.178.61:5180/cmal/mysql:8.0.21
+    image: mysql:8.0.21
     restart: always
     volumes:
       - /root/app/mysql/data:/var/lib/mysql

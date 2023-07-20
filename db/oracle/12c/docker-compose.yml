@@ -3,7 +3,7 @@ version: '3.1'
 services:
   oracle:
     container_name: oracle12c
-    image: 172.16.178.61:5180/cmal/oracle12c
+    image: oracle12c
     restart: always
     privileged: true
     ports:

@@ -3,7 +3,7 @@ services:
   portainer:
     container_name: portainer
     restart: always
-    image: 172.16.178.61:5180/cmal/portainer
+    image: portainer
     ports:
       - "8000:8000"
       - "9000:9000"
