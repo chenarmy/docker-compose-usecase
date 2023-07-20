@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  redis:
+    image: 172.16.178.61:5180/cmal/redis:6
+    container_name: redis
+    # 优先使用命令行参数，期次是redis.conf中的参数
+    command: redis-server /usr/local/etc/redis/redis.conf  --requirepass "root123"
+    restart: always
+    volumes:
+      - /root/app/redis/data:/data
+      - /root/app/redis/data/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"

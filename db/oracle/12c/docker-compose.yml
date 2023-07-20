@@ -1,0 +1,13 @@
+version: '3.1' 
+
+services:
+  oracle:
+    container_name: oracle12c
+    image: 172.16.178.61:5180/cmal/oracle12c
+    restart: always
+    privileged: true
+    ports:
+      - "1522:1521"
+    volumes:
+      - /root/app/oracle/data:/home/oracle/data_temp
+      - /etc/localtime:/etc/localtime:ro

@@ -1,0 +1,15 @@
+version: '3'
+services:
+ nginx:
+  image: 172.16.178.61:5180/cmal/nginx:1.25.1
+  volumes:
+    - /root/app/nginx/data/conf:/etc/nginx/conf.d
+    - /root/app/nginx/data/cert:/usr/local/nginx/cert
+    - /root/app/nginx/public:/var/www/html/public
+    - /root/app/nginx/html/workflow/pc:/app/cmal-parts-front/workflow/pc
+  ports:
+    - "80:80"
+    - "443:443"
+    - "1001:1001"
+  container_name: nginx1251
+  restart: always

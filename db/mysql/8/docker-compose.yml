@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+  db:
+    container_name: mysql8.0.21
+    image: 172.16.178.61:5180/cmal/mysql:8.0.21
+    restart: always
+    volumes:
+      - /root/app/mysql/data:/var/lib/mysql
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      # root 密码
+      MYSQL_ROOT_HOST: "%"  
+      MYSQL_ROOT_PASSWORD: cmal@CMALDEV1
+    ports:
+      - 3306:3306
+    volumes:
+      # 数据挂载
+      - /data/docker_file/mysql/data/:/var/lib/mysql/
+      # 配置挂载
+      - /data/docker_file/mysql/conf/:/etc/mysql/conf.d/
+      # 初始化目录挂载
+      # - /root/mysql/init/:/docker-entrypoint-initdb.d/
+    command:
+      # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1

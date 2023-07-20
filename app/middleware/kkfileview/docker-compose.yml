@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  kkfileview:
+    container_name: kkfileview
+    image: 172.16.178.61:5180/cmal/kkfileview
+    ports:
+      - "8012:8012"
+    restart: always
+    environment:
+      - KK_CONTEXT_PATH=/pr

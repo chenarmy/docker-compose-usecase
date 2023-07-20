@@ -1,0 +1,15 @@
+version: '3'
+services:
+  datart:
+    # 镜像名
+    image: 172.16.178.61:5180/cmal/datart:1.0.0-rc.2
+    # 容器名(以后的控制都通过这个)
+    container_name: datart
+    # 重启策略
+    restart: always
+    ports:
+      - 8888:8080
+    volumes:
+      # 配置挂载
+      - ./datart.conf:/datart/config/datart.conf
+      - ./datart/files:/datart/files

@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    restart: always
+    # command: --config /etc/mongo/mongod.conf
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: Admin
+      MONGO_INITDB_ROOT_PASSWORD: Admin123Abc123
+    ports:
+      - 27017:27017
+    volumes:
+      # 初始化数据库
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      # 挂载数据目录
+      - /data/docker_file/mongo1/db:/data/db
+      # 挂载日志目录
+      - /data/docker_file/mongo1/log:/var/log/mongodb
+      # 挂载配置目录
+      - /data/docker_file/mongo1/config:/etc/mongo

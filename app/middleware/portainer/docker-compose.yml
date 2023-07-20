@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  portainer:
+    container_name: portainer
+    restart: always
+    image: 172.16.178.61:5180/cmal/portainer
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/app/portainer/data:/data
